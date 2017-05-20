@@ -1,0 +1,10 @@
+<td>
+    <?php if(array_key_exists('more', $column)): ?>
+    <?php foreach($column['more'] as $act): ?>
+        <a href="<?php echo $this->url($act['route'], array('id' => $item['id'])); ?>" class="link-black text-sm"><i class="fa <?php echo $act['icon']; ?>"></i> <?php echo $act['label']; ?></a>
+    <?php endforeach; ?>
+    <?php endif; ?>
+    
+    <a href="<?php echo $this->url($this->route . '/edit', array('id' => $item['id'])); ?>" class="link-black text-sm"><i class="fa fa-edit"></i> Editar</a>
+    <a href="<?php echo $this->url($this->route . '/delete', array('id' => $item['id'])); ?>" class="link-red text-sm"><i class="fa fa-trash-o"></i> Eliminar</a>
+</td>

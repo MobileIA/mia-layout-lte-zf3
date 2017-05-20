@@ -1,0 +1,50 @@
+<!-- User Account: style can be found in dropdown.less -->
+<li class="dropdown user user-menu">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <?php if ($this->identity() == null || $this->identity()->photo == ''): ?>
+            <img src="<?php echo $this->basePath('mia-layout-lte/dist/img/avatar5.png'); ?>" class="user-image" alt="<?php if($this->identity() != null): ?><?php echo $this->identity()->firstname; ?><?php else: ?>Anonimo<?php endif; ?> Image">
+        <?php else: ?>
+            <img src="<?php echo $this->identity()->photo; ?>" class="user-image" alt="<?php if($this->identity() != null): ?><?php echo $this->identity()->firstname; ?><?php else: ?>Anonimo<?php endif; ?> Image">
+        <?php endif; ?>
+        <span class="hidden-xs"><?php if($this->identity() != null): ?><?php echo $this->identity()->firstname; ?><?php else: ?>Anonimo<?php endif; ?></span>
+    </a>
+    <ul class="dropdown-menu">
+        <!-- User image -->
+        <li class="user-header">
+            <?php if ($this->identity() == null || $this->identity()->photo == ''): ?>
+                <img src="<?php echo $this->basePath('mia-layout-lte/dist/img/avatar5.png'); ?>" class="img-circle" alt="<?php if($this->identity() != null): ?><?php echo $this->identity()->firstname; ?><?php else: ?>Anonimo<?php endif; ?> Image">
+            <?php else: ?>
+                <img src="<?php echo $this->identity()->photo; ?>" class="img-circle" alt="<?php if($this->identity() != null): ?><?php echo $this->identity()->firstname; ?><?php else: ?>Anonimo<?php endif; ?> Image">
+            <?php endif; ?>
+
+            <p>
+                <?php if($this->identity() != null): ?><?php echo $this->identity()->firstname; ?> <?php echo $this->identity()->lastname; ?><?php else: ?>Anonimo<?php endif; ?> - Web Developer
+                <small>Member since Nov. 2012</small>
+            </p>
+        </li>
+        <!-- Menu Body -->
+        <li class="user-body">
+            <div class="row">
+                <div class="col-xs-4 text-center">
+                    <a href="#">Followers</a>
+                </div>
+                <div class="col-xs-4 text-center">
+                    <a href="#">Sales</a>
+                </div>
+                <div class="col-xs-4 text-center">
+                    <a href="#">Friends</a>
+                </div>
+            </div>
+            <!-- /.row -->
+        </li>
+        <!-- Menu Footer-->
+        <li class="user-footer">
+            <div class="pull-left">
+                <a href="#" class="btn btn-default btn-flat">Profile</a>
+            </div>
+            <div class="pull-right">
+                <a href="<?php echo $this->url('logout'); ?>" class="btn btn-default btn-flat">Sign out</a>
+            </div>
+        </li>
+    </ul>
+</li>

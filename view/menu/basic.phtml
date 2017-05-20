@@ -1,0 +1,27 @@
+<ul class="sidebar-menu">
+    <li class="header">MAIN NAVIGATION</li>
+    <?php /* @var $page \Zend\Navigation\Page\Mvc */ ?>
+    <?php foreach ($this->container as $page): ?>
+        <?php if($page->count() == 0): ?>
+        <li class="<?php if($page->isActive()): ?>active<?php endif; ?>">
+            <a href="<?php echo $page->getHref(); ?>">
+                <i class="<?php echo $page->getClass(); ?>"></i> <span><?php echo $page->getLabel(); ?></span>
+            </a>
+        </li>
+        <?php else: ?>
+        <li class="<?php if($page->isActive(true)): ?>active<?php endif; ?> treeview">
+            <a href="#">
+                <i class="<?php echo $page->getClass(); ?>"></i> <span><?php echo $page->getLabel(); ?></span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <?php foreach($page->getPages() as $subpage): ?>
+                <li class="<?php if($subpage->isActive(true)): ?>active<?php endif; ?>"><a href="<?php echo $subpage->getHref(); ?>"><i class="<?php echo $subpage->getClass(); ?>"></i> <?php echo $subpage->getLabel(); ?></a></li>
+                <?php endforeach; ?>
+            </ul>
+        </li>
+        <?php endif; ?>
+    <?php endforeach; ?>
+</ul>

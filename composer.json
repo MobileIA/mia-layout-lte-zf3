@@ -1,0 +1,33 @@
+{
+    "name": "mobileia/mia-layout-lte-zf3",
+    "description": "The library for Zend Framework 3",
+    "version": "0.0.1",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matias Camiletti",
+            "homepage": "http://www.mobileia.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/MobileIA/mia-layout-lte-zf3.git"
+        }
+    ],
+    "require": {
+        "php": "^5.6 || ^7.0",
+        "zendframework/zend-db": "^2.8.1",
+        "zendframework/zend-json": "^3.0",
+        "zendframework/zend-mvc-form": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MIALayoutLTE\\": "src/"
+        },
+        "classmap": [
+            "./Module.php"
+        ]
+    }
+}
