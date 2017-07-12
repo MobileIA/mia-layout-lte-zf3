@@ -1,0 +1,3 @@
+<?php foreach($element->getIterator() as $subElement): ?>
+    <?php echo $this->partial('form/element/' . $form->getElementType($subElement) . '.phtml', array('form' => $form, 'element' => $subElement)); ?>
+<?php endforeach; ?>
