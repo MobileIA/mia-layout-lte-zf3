@@ -47,9 +47,10 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-8">
-                            <div class="checkbox icheck">
+                            <?php $rememberMe = $this->form->get('remember_me'); ?>
+                            <div class="checkbox">
                                 <label>
-                                    <input type="checkbox"> Remember Me
+                                    <input name="<?php echo $rememberMe->getName(); ?>" type="checkbox" value="1"> <?php echo $rememberMe->getOption('label'); ?>
                                 </label>
                             </div>
                         </div>
@@ -90,7 +91,7 @@
 
         <script>
             $(function () {
-                $('input').iCheck({
+                $('.icheck').iCheck({
                     checkboxClass: 'icheckbox_square-blue',
                     radioClass: 'iradio_square-blue',
                     increaseArea: '20%' // optional
