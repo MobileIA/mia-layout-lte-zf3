@@ -3,8 +3,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Simple Tables
-            <small>preview of simple tables</small>
+            <?php echo $this->string['main_title']; ?>
+            <small><?php echo $this->string['main_caption']; ?></small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -20,7 +20,7 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Responsive Hover Table</h3>
+                        <h3 class="box-title"><?php echo $this->string['title']; ?></h3>
 
                         <?php if($service->getOption('has_search', false)): ?>
                         <div class="box-tools">
