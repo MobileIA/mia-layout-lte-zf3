@@ -42,6 +42,9 @@ function add<?php echo $elementIdHtml; ?>(){
     $(template).find('input').each(function(index, element){
         $(element).attr('name', $(element).attr('name').replace('_0', '_'+currentCount));
     });
+    $(template).find('select').each(function(index, element){
+        $(element).attr('name', $(element).attr('name').replace('_0', '_'+currentCount));
+    });
     $(template).find('label').each(function(index, element){
         $(element).attr('for', $(element).attr('for').replace('_0', '_'+currentCount));
     });
