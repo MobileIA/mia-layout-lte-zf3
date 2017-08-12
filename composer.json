@@ -31,5 +31,10 @@
         "classmap": [
             "./Module.php"
         ]
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "ln -s vendor/mobileia/mia-layout-lte-zf3/public/mia-layout-lte/ public/mia-layout-lte"
+        ]
     }
 }
