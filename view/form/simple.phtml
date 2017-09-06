@@ -40,3 +40,19 @@
     <!-- /.content -->
 </div>
 
+<script type="text/javascript">
+<?php $this->headScript()->captureStart() ?>
+    // Buscar si hay campos con errores
+    $('.has-error').each(function(index, element){
+        if(index == 0){
+            setTimeout(function() {
+                $(element).find('.form-control').focus();
+            }, 0);
+        }
+        var helpBlock = $(element).find('.help-block');
+        if(helpBlock.text() == "Value is required and can't be empty"){
+           helpBlock.text("Este campo es necesario!"); 
+        }
+    });
+<?php $this->headScript()->captureEnd() ?>
+</script>
