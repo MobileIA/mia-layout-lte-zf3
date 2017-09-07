@@ -3,6 +3,7 @@
  * @license   http://opensource.org/licenses/BSD-3-Clause BSD-3-Clause
  * @copyright Copyright (c) 2014 Zend Technologies USA Inc. (http://www.zend.com)
  */
+namespace MIALayoutLTE;
 
 return array(
     'view_manager' => [
@@ -26,4 +27,17 @@ return array(
             __DIR__ . '/../view',
         ],
     ],
+    'view_helpers' => [
+        'aliases' => [
+            'layoutLte' => View\Helper\LayoutLte::class,
+        ],
+        'factories' => [
+            View\Helper\LayoutLte::class => View\Helper\LayoutLteFactory::class,
+        ],
+    ],
+    'mia_layout_lte' => [
+        'title' => 'AdminLTE',
+        'title_part_one' => 'Admin',
+        'title_part_two' => 'LTE',
+    ]
 );

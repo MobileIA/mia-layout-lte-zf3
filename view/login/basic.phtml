@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <?php echo $this->headTitle('ZF Skeleton Application')->setTranslatorEnabled(false)->setSeparator(' - ')->setAutoEscape(false) ?>
+        <?php echo $this->headTitle($this->layoutLte()->title)->setTranslatorEnabled(false)->setSeparator(' - ')->setAutoEscape(false) ?>
         
         <?php echo $this->headMeta()
                 ->appendName('viewport', 'width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no')
@@ -28,11 +28,11 @@
     <body class="hold-transition login-page">
         <div class="login-box">
             <div class="login-logo">
-                <a href="#"><b>Admin</b>LTE</a>
+                <a href="#"><b><?php echo $this->layoutLte()->titlePartOne; ?></b><?php echo $this->layoutLte()->titlePartTwo; ?></a>
             </div>
             <!-- /.login-logo -->
             <div class="login-box-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <p class="login-box-msg">Inicia sesión para poder ingresar:</p>
 
                 <?php echo $this->form()->openTag($form); ?>
                     <?php $email = $this->form->get('email'); ?>
@@ -56,7 +56,7 @@
                         </div>
                         <!-- /.col -->
                         <div class="col-xs-4">
-                            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                            <button type="submit" class="btn btn-primary btn-block btn-flat">Ingresar</button>
                         </div>
                         <!-- /.col -->
                     </div>
