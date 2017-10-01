@@ -3,6 +3,7 @@
 
 <fieldset id="<?php echo $elementIdHtml; ?>">
     <label><?php echo $element->getLabel(); ?></label>
+    <input type="hidden" id="<?php echo $elementIdHtml; ?>_delete" name="<?php echo $elementIdHtml; ?>_delete" value="" />
     <?php if($element->getValue() != null && count($element->getValue()) > 0): ?>
     
     <input type="hidden" id="<?php echo $elementIdHtml; ?>_count" name="<?php echo $elementIdHtml; ?>_count" value="<?php echo count($element->getValue()); ?>" />
@@ -64,7 +65,19 @@ function add<?php echo $elementIdHtml; ?>(){
     return false;
 }
 function delete<?php echo $elementIdHtml; ?>(element){
+    // Obtener mumero de elemento
     var num = $(element).attr('data-num');
+    // Buscar input oculto
+    var hidden = $('#<?php echo $element->getName(); ?>_fieldset_' + num).find('input[type="hidden"]')[0];
+    var hiddenVal = $(hidden).val();
+    if(hiddenVal){
+        var deleteds = $('#<?php echo $element->getName(); ?>_fieldset_delete').val();
+        if(deleteds == ''){
+            $('#<?php echo $element->getName(); ?>_fieldset_delete').val(hiddenVal);
+        }else{
+            $('#<?php echo $element->getName(); ?>_fieldset_delete').val($('#<?php echo $element->getName(); ?>_fieldset_delete').val() + "," + hiddenVal);
+        }
+    } 
     if(num == 0){
         $(element).parent().find('input').val('');
         return false;
