@@ -15,6 +15,11 @@
 <?php $this->headScript()->captureStart() ?>
     $('#<?php echo $element->getName(); ?>').change(function(){
         var value = $('#<?php echo $element->getName(); ?>').val();
+        value = value.replace('https://www.youtube.com/watch?v=', '');
+        value = value.replace('https://youtu.be/', '');
+        value = value.replace('www.youtube.com/watch?v=', '');
+        value = value.replace('youtube.be/', '');
+        $('#<?php echo $element->getName(); ?>').val(value);
         if(value != ''){
             $('#<?php echo $element->getName(); ?>_iframe').show();
             $('#<?php echo $element->getName(); ?>_iframe').attr('src', 'https://www.youtube.com/embed/' + value);
