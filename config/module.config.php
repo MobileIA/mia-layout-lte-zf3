@@ -19,6 +19,7 @@ return array(
             'mia-layout-lte/paginator/dropdown'           => __DIR__ . '/../view/pagination/dropdown.phtml',
             'mia-layout-lte/table/simple'           => __DIR__ . '/../view/table/simple.phtml',
             'mia-layout-lte/form/simple'           => __DIR__ . '/../view/form/simple.phtml',
+            'mia-layout-lte/form/with-preview'           => __DIR__ . '/../view/form/with_preview.phtml',
             'mia-layout-lte/login/basic'           => __DIR__ . '/../view/login/basic.phtml',
             'mia-layout-lte/dashboard/main'           => __DIR__ . '/../view/dashboard/main.phtml',
             'mia-layout-lte/menu/basic'           => __DIR__ . '/../view/menu/basic.phtml',
