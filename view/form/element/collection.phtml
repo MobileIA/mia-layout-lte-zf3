@@ -17,6 +17,7 @@
                 <?php $subElementClone->setName($elementIdHtml. '_' . $j . '['.$subElementClone->getName().']'); ?>
                 <?php echo $this->partial('form/element/' . $form->getElementType($subElementClone) . '.phtml', array('form' => $form, 'element' => $subElementClone)); ?>
             <?php endforeach; ?>
+            <a href="#" data-num="<?php echo $j; ?>" onclick="return copy<?php echo $elementIdHtml; ?>(this)">Copiar</a>
         </fieldset>
     <?php endfor; ?>
     
@@ -29,6 +30,7 @@
             <?php $subElement->setName($elementIdHtml. '_0' . '['.$subElement->getName().']'); ?>
             <?php echo $this->partial('form/element/' . $form->getElementType($subElement) . '.phtml', array('form' => $form, 'element' => $subElement)); ?>
         <?php endforeach; ?>
+        <a href="#" data-num="0" onclick="return copy<?php echo $elementIdHtml; ?>(this)">Copiar</a>
     </fieldset>
     <?php endif; ?>
 </fieldset>
@@ -53,6 +55,35 @@ function add<?php echo $elementIdHtml; ?>(){
     });
     $(template).find('input').val('');
     $(template).find('a').attr('data-num', currentCount);
+
+    $('#<?php echo $elementIdHtml; ?>').append(template);
+    $('#<?php echo $elementIdHtml; ?>_count').val(parseInt($('#<?php echo $elementIdHtml; ?>_count').val()) + 1);
+    // Refrescar campos de fecha
+    $('.datepicker').datepicker({
+        autoclose: true,
+        format: 'yyyy-mm-dd'
+    });
+
+    return false;
+}
+function copy<?php echo $elementIdHtml; ?>(el){
+    // Obtener mumero de elemento
+    var num = $(el).attr('data-num');
+    var currentCount = $('#<?php echo $elementIdHtml; ?> fieldset').length;
+    var template = $('#<?php echo $element->getName(); ?>_fieldset_'+num).clone();
+    $(template).attr('id', '<?php echo $element->getName(); ?>_fieldset_' + currentCount);
+    $(template).find('input').each(function(index, element){
+        $(element).attr('name', $(element).attr('name').replace('_'+num, '_'+currentCount));
+    });
+    $(template).find('select').each(function(index, element){
+        $(element).attr('name', $(element).attr('name').replace('_'+num, '_'+currentCount));
+    });
+    $(template).find('label').each(function(index, element){
+        $(element).attr('for', $(element).attr('for').replace('_'+num, '_'+currentCount));
+    });
+    $(template).find('a').attr('data-num', currentCount);
+    // Resetear ID oculto si tiene
+    $(template).find('input[name="<?php echo $elementIdHtml; ?>_'+currentCount+'[id]"]').val('');
 
     $('#<?php echo $elementIdHtml; ?>').append(template);
     $('#<?php echo $elementIdHtml; ?>_count').val(parseInt($('#<?php echo $elementIdHtml; ?>_count').val()) + 1);
