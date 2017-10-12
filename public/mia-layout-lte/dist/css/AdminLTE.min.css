@@ -9,3 +9,4 @@
 .form-group-checkbox label { display: inline-block; margin-right: 10px; }
 .element_fielset { border: 1px solid #ccc; padding: 10px; }
 .element_fielset .form-group { display: inline-block; }
+.form-control-mini-100 { width: 100px; }

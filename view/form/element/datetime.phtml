@@ -1,4 +1,4 @@
-<?php $element->setAttribute('class', 'form-control datepicker'); ?>
+<?php $element->setAttribute('class', 'form-control datepicker ' . $element->getAttribute('class')); ?>
 
 <div class="form-group <?php if($form->hasErrorElement($element)): ?>has-error<?php endif; ?>">
     <?= $this->formLabel($element) ?>
