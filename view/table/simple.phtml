@@ -41,15 +41,18 @@
                         </div>
                         <?php endif; ?>
                     </div>
-                    <?php if($service->getOption('allow_add', true)): ?>
                     <div class="box-header">
-                        <?php if($this->is_relation === true): ?>
-                        <a href="<?php echo $this->url($this->route . '/add', array('id' => $relation_value)); ?>">Agregar</a>
-                        <?php else: ?>
-                        <a href="<?php echo $this->url($this->route . '/add'); ?>">Agregar</a>
+                        <?php if($service->getOption('allow_add', true)): ?>
+                            <?php if($this->is_relation === true): ?>
+                            <a href="<?php echo $this->url($this->route . '/add', array('id' => $relation_value)); ?>">Agregar</a>
+                            <?php else: ?>
+                            <a href="<?php echo $this->url($this->route . '/add'); ?>">Agregar</a>
+                            <?php endif; ?>
                         <?php endif; ?>
+                        <?php foreach($service->getOption('box_header_menu', []) as $link): ?>
+                            <a href="<?php echo $this->url($link['route']); ?>"><?php echo $link['title']; ?></a>
+                        <?php endforeach; ?>
                     </div>
-                    <?php endif; ?>
                     <!-- /.box-header -->
                     <div class="box-body table-responsive no-padding">
                         <table class="table table-hover">
