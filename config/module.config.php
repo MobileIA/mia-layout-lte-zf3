@@ -5,6 +5,8 @@
  */
 namespace MIALayoutLTE;
 
+use Zend\ServiceManager\Factory\InvokableFactory;
+
 return array(
     'view_manager' => [
         'display_not_found_reason' => true,
@@ -31,9 +33,11 @@ return array(
     'view_helpers' => [
         'aliases' => [
             'layoutLte' => View\Helper\LayoutLte::class,
+            'lteForm' => View\Helper\LteForm::class,
         ],
         'factories' => [
             View\Helper\LayoutLte::class => View\Helper\LayoutLteFactory::class,
+            View\Helper\LteForm::class => InvokableFactory::class,
         ],
     ],
     'mia_layout_lte' => [

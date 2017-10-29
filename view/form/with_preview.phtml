@@ -24,14 +24,7 @@
                         <h3 class="box-title">Responsive Hover Form</h3>
                     </div>-->
                     <!-- /.box-header -->
-                    <?php echo $this->form()->openTag($form); ?>
-                        <div class="box-body">
-                            <?php foreach($form->getIterator() as $element): ?>
-                                <?php echo $this->partial('form/element/' . $form->getElementType($element) . '.phtml', array('form' => $form, 'element' => $element)); ?>
-                            <?php endforeach; ?>
-                        </div>
-                        <!-- /.box-body -->
-                    <?php echo $this->form()->closeTag(); ?>
+                    <?php echo $this->lteForm($form); ?>
                 </div>
                 <!-- /.box -->
             </div>
