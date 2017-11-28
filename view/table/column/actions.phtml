@@ -5,6 +5,8 @@
     <?php endforeach; ?>
     <?php endif; ?>
     
-    <a href="<?php echo $this->url($this->route . '/edit', array('id' => $item['id'])); ?>" class="link-black text-sm"><i class="fa fa-edit"></i> Editar</a>
+    <?php if(!array_key_exists('allow_edit', $column) || $column['allow_edit'] == true): ?>
+        <a href="<?php echo $this->url($this->route . '/edit', array('id' => $item['id'])); ?>" class="link-black text-sm"><i class="fa fa-edit"></i> Editar</a>
+    <?php endif; ?>
     <a href="<?php echo $this->url($this->route . '/delete', array('id' => $item['id'])); ?>" class="link-red text-sm"><i class="fa fa-trash-o"></i> Eliminar</a>
 </td>
