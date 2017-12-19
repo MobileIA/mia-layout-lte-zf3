@@ -8,5 +8,7 @@
     <?php if(!array_key_exists('allow_edit', $column) || $column['allow_edit'] == true): ?>
         <a href="<?php echo $this->url($this->route . '/edit', array('id' => $item['id'])); ?>" class="link-black text-sm"><i class="fa fa-edit"></i> Editar</a>
     <?php endif; ?>
+    <?php if (!array_key_exists('allow_delete', $column) || $column['allow_delete'] == true): ?>
     <a href="<?php echo $this->url($this->route . '/delete', array('id' => $item['id'])); ?>" class="link-red text-sm"><i class="fa fa-trash-o"></i> Eliminar</a>
+    <?php endif; ?>
 </td>
